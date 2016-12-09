@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="Scrapbook of all of my favorite projects"/>
+	<meta name="keywords" content="Web Design Portfolio"/>
+	<meta name="author" content="Alex Rasmussen"/>
+	<title>Alex Rasmussen</title>
+	<link rel="stylesheet" href="main.css" type="text/css"/>
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Bungee+Inline|Bungee+Shade|Oleo+Script+Swash+Caps" rel="stylesheet"/>
+</head>
+<body>
+<div id="wrapper">
+	<div id="topBtn"></div>
+	<header>
+		<div class="circ" id="headLeft"></div>
+		<div class="circ" id="headRight"></div>
+		<div id="headName">
+			<div id="headNameStartUp"></div>
+			<p><span id="headTitle"><span class="FirstLetter">A</span>lex<br /><span class="FirstLetter">R</span>asmussen</span></p>
+			<div class="line">
+				<div class="lineleft"></div>
+				<div class="lineMid-Dot"></div>
+				<div class="lineRight"></div>
+			</div>
+		</div>
+	</header>
+	<div id="content">
+		<!--Language section-->
+		<div id="languages">
+			<p id="langHead">Languages</p>
+			<ul id="langList">
+				<li id="1">
+					<p class="langName">html</p>
+					<p class="langSymbol" id="symHtml">< ></p>
+					<p class="langNameDesc">Skill Level: Expert</p>
+				</li>
+				<li id="2">
+					<p class="langName">css</p>
+					<p class="langSymbol" id="symCss">{ }</p>
+					<p class="langNameDesc">Skill Level: Expert</p>
+				</li>
+				<li id="3">
+					<p class="langName">jQuery</p>
+					<p class="langSymbol" id="symJquery">$</p>
+					<p class="langNameDesc">Skill Level: Novice</p>
+				</li>
+			</ul>
+		</div>
+		<!--Project Section-->
+		<div id="projects">
+		<div class="ScrollBtnArea">
+			<div class="ScrollBtn">
+				<p class="ScrollBtnLeft" lang="it">On</p>
+				<p class="ScrollBtnRight">Off</p>
+			</div>
+			<div class="ScrollBtn2">
+				<p class="ScrollBtnLeft">On</p>
+				<p class="ScrollBtnRight">Off</p>
+			</div>
+		</div>
+			<div class="projHead" id="projHeadStatic">
+				<p>Web Design Projects</p>
+			</div>
+			<div class="projHead" id="projHeadFixed">
+				<p>Web Design Projects</p>
+			</div>
+			<div id="projListHolder"> <!--Centers list-->
+				<ul id="projList">
+					<li id="proj1" class="proj"></li>
+					<li id="proj2" class="projScrollable scroll"></li>
+					<li id="proj3" class="proj"></li>
+					<li id="proj4" class="projScrollable scroll"></li>
+					<li id="proj5" class="proj"></li>
+					<li id="proj6" class="proj"></li>
+					<li id="proj7" class="projScrollable scroll"></li>
+					<li id="proj8" class="projScrollable scroll"></li>
+					<li id="proj9" class="projScrollable scroll"></li>
+					<li id="proj10" class="projScrollable scroll"></li>
+					<li id="proj11" class="projScrollable scroll"></li>
+					<li id="proj12" class="proj"></li>
+					<li id="proj13" class="projScrollable scroll"></li>
+					<li id="proj14" class="projScrollable scroll"></li>
+				</ul>
+			</div>
+		</div>
+		<div id="Unity3d">
+			<div class="Unity3dLogo"></div>
+		</div>
+	</div>
+</div>
+<script src="script.js"></script>
+<noscript><p>No JavaScript = No Fun</p></noscript>
+<script>
+$(document).ready(function(){
+	$("#langList li").delay(5000).animate({opacity: "1"}).click(function(){
+		$(".langNameDesc", this).fadeToggle().siblings(".langNameDesc").fadeOut();
+	});
+	$("#headTitle").delay(5600).animate({opacity: "1"});
+	$("#topBtn").click(function(){
+		$("body, html").animate({
+			scrollTop: 0
+		}, 500);
+	});
+	$(function(){
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > 679) {
+				$("#projHeadStatic").css("opacity","0");
+				$("#projHeadFixed").show();
+				$("#projHeadFixed p").addClass("projHeadFixedText");
+				$(".ScrollBtnArea").addClass("ScrollBtnAreaFixed");
+			}
+			else {
+				$("#projHeadStatic").css("opacity","1");
+				$("#projHeadFixed").hide();
+				$("#projHeadFixed p").removeClass("projHeadFixedText");
+				$(".ScrollBtnArea").removeClass("ScrollBtnAreaFixed");
+			}
+		});
+	});
+	$(".ScrollBtn").click(function(){
+		$(this).hide();
+		$(".ScrollBtn2").show();
+		$(".projScrollable").removeClass("scroll");
+	});
+	$(".ScrollBtn2").click(function(){
+		$(this).hide();
+		$(".ScrollBtn").show();
+		$(".projScrollable").addClass("scroll");
+	});
+	$("#topBtn").hide();
+	$(function() {
+		$(window) .scroll(function(){
+			if ($(this) .scrollTop() > 433) {
+					$("#topBtn").fadeIn();	
+			}
+			else {
+				$("#topBtn").fadeOut();
+			}
+		});
+	});
+});
+</script>
+</body>
+</html>
